@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {margin: 0;padding: 0;box-sizing: border-box;font-family: 'Poppins', sans-serif;}
+        body {display: flex; height: 100vh;overflow: hidden;}
+        .head {font-size: .6rem;font-weight: 500;text-shadow: 1px 1px 1px black;}
+        .count {font-size: 1em!important;text-shadow: 1px 1px 10px black;}
+        #footer {position: absolute;bottom: 21px;left: 5px;    }
+        .counter {width: 109px;background: #111;height: 56px;display: flex;align-items: center;justify-content: center;flex-direction: column;color: white;padding: 10px;box-shadow: 0px 0px 8px black;border-radius: 8px;}
+        </style>
+</head>
+<body>
+  
+<!-- In script section replace the fetch link with your unique api link e.g.'https://api.countapi.xyz/update/virtubox/widgets/?amount=1'
+
+1. Go to a new tab and paste this link- "https://api.countapi.xyz/create?namespace=YOURNAMESPACE&key=YOURKEY&value=0" here replace with your new  NAMESPACE and  KEY and hit enter then you can see your namespace and key.
+2.Now run this link using your namespace and your given key
+"https://api.countapi.xyz/get/YOURNAMESPACE/YOURKEY"
+3.Now run the same link but this time relace the 'get' with 'update' and add '?amount=1' at the end e.g. "https://api.countapi.xyz/update/YOURNAMESPACE/YOURKEY?amount=1".
+4.Then keep on refreshing your page you will see the value increasing by one
+ -->
+
+<div class="counter" id="footer">
+<div class="head">Total Website Visit</div>
+<div class="count">00</div></div>
+<script >function updateCounter() {
+fetch('https://api.countapi.xyz/update/virtubox/widgets/?amount=1')
+.then(res => res.json())
+.then(data => counterElement.innerHTML = data.value)
+}
+updateCounter()
+counterElement = document.getElementsByClassName('count')[0];</script>
+</body>
+</html>
